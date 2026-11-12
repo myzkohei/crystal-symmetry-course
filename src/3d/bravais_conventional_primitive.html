@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>慣用セルと基本セル</title>
+<style>
+:root{--bg:#ffffff;--fg:#1f1e1d;--sub:#5f5e5a;--mute:#888780;--line:#d3d1c7;--btn:#f1efe8;--acc:#185FA5}
+@media (prefers-color-scheme: dark){:root{--bg:#1f1e1d;--fg:#f1efe8;--sub:#b4b2a9;--mute:#888780;--line:#444441;--btn:#2c2c2a;--acc:#85B7EB}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Hiragino Sans","Noto Sans JP",system-ui,sans-serif}
+main{max-width:640px;margin:0 auto;padding:20px 16px 32px}
+h1{font-size:20px;font-weight:600;margin:0 0 4px}
+.lead{font-size:14px;color:var(--sub);margin:0 0 14px}
+#btns{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 10px}
+#btns button{font:inherit;font-size:14px;padding:6px 12px;border-radius:8px;border:1px solid var(--line);background:var(--btn);color:var(--fg);cursor:pointer}
+#btns button.on{border-color:var(--acc);color:var(--acc)}
+svg{display:block;width:100%;touch-action:none;cursor:grab}
+.leg{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--sub);margin:6px 0 0}
+.sw{display:inline-block;width:20px;vertical-align:middle;margin-right:4px}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;vertical-align:middle;margin-right:4px}
+#eq{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;line-height:1.7;margin:12px 0 0;padding:10px 12px;border:1px solid var(--line);border-radius:8px;white-space:pre-wrap}
+#info{font-size:14px;line-height:1.7;margin:10px 0 0}
+.hint{font-size:12px;color:var(--mute);margin:6px 0 0}
+</style>
+</head>
+<body>
+<main>
+<h1>慣用セルと基本セル</h1>
+<p class="lead">慣用セル（灰色）に基本セル（紫）を重ねた図。</p>
+<div id="btns">
+<button data-k="bcc">BCC</button><button data-k="fcc">FCC</button><button data-k="oc">底心（C）</button><button data-k="hp">六方（hP）</button><button data-k="hr">三方（hR）</button>
+</div>
+<svg id="v" viewBox="0 0 380 330" role="img" aria-label="慣用セルと基本セルを重ねた立体図"></svg>
+<div class="leg">
+<span><span class="sw" style="border-top:1.5px solid #888780"></span><span id="lconv">慣用セル</span></span>
+<span><span class="sw" style="border-top:3px solid #7F77DD"></span><span id="lprim">基本セル</span></span>
+<span><span class="dot" style="background:#888780"></span>隅の格子点</span>
+<span id="lcen"><span class="dot" style="background:#D85A30"></span>中心化による格子点</span>
+</div>
+<p class="hint">ドラッグで回転できます</p>
+<p id="info"></p>
+</main>
+<script>
+(function(){
+const svg=document.getElementById('v'),NS='http://www.w3.org/2000/svg';
+const G='#888780',R='#D85A30',s3=Math.sqrt(3)/2;
+const add=(p,q)=>p.map((v,i)=>v+q[i]);
+function para(o,u,v,w){const V=[];for(let i=0;i<8;i++){let p=o.slice();if(i&1)p=add(p,u);if(i&2)p=add(p,v);if(i&4)p=add(p,w);V.push(p);}
+const E=[];for(let i=0;i<8;i++)for(let j=i+1;j<8;j++){const d=i^j;if(d===1||d===2||d===4)E.push([V[i],V[j]]);}return {V,E};}
+const cube=para([0,0,0],[1,0,0],[0,1,0],[0,0,1]);
+const at=(L,c)=>L.map(p=>({p,c}));
+const hx=c=>(x,y,z)=>[x-0.5*y,s3*y,z*c];
+const L={};
+L.bcc={conv:cube.E,prim:para([.5,.5,.5],[.5,.5,-.5],[-.5,.5,.5],[.5,-.5,.5]).E,
+atoms:at(cube.V,G).concat(at([[.5,.5,.5],[.5,1.5,.5],[1.5,.5,.5],[.5,.5,1.5]],R)),cen:true,
+lc:'慣用セル（立方体）',lp:'基本セル（菱面体）',
+info:'基本セルは α = 109.47° の菱面体。体積は慣用セルの 1/2（格子点 2 個 → 1 個）。3 つの頂点が隣の立方体の体心にはみ出す。'};
+L.fcc={conv:cube.E,prim:para([0,0,0],[0,.5,.5],[.5,0,.5],[.5,.5,0]).E,
+atoms:at(cube.V,G).concat(at([[.5,.5,0],[.5,.5,1],[.5,0,.5],[.5,1,.5],[0,.5,.5],[1,.5,.5]],R)),cen:true,
+lc:'慣用セル（立方体）',lp:'基本セル（菱面体）',
+info:'基本セルは α = 60° の菱面体。体積は慣用セルの 1/4（格子点 4 個 → 1 個）。頂点はすべて隅と面心の格子点。'};
+(function(){const b=1.5;const c=para([0,0,0],[1,0,0],[0,b,0],[0,0,1]);
+L.oc={conv:c.E,prim:para([0,0,0],[.5,-b/2,0],[.5,b/2,0],[0,0,1]).E,
+atoms:at(c.V,G).concat(at([[.5,b/2,0],[.5,b/2,1],[.5,-b/2,0],[.5,-b/2,1]],R)),cen:true,
+lc:'慣用セル（直方体、C 底心）',lp:'基本セル',
+info:'基本セルは a′ = (a − b)/2, b′ = (a + b)/2, c′ = c。a′ = b′ で底面がひし形の柱。体積は慣用セルの 1/2（b/a = 1.5 は作図用の値）。'};})();
+(function(){const f=hx(1.6);const E=[];const ring=z=>{const r=[];for(let k=0;k<6;k++){const t=k*Math.PI/3;r.push([Math.cos(t),Math.sin(t),z]);}return r;};
+const b=ring(0),t=ring(1.6);for(let k=0;k<6;k++){E.push([b[k],b[(k+1)%6]]);E.push([t[k],t[(k+1)%6]]);E.push([b[k],t[k]]);}
+L.hp={conv:E,prim:para([0,0,0],f(1,0,0),f(0,1,0),f(0,0,1)).E,
+atoms:at(b.concat(t,[[0,0,0],[0,0,1.6]]),G),cen:false,
+lc:'六角柱（単位胞 3 個分）',lp:'単位胞（慣用 = 基本）',
+info:'六方格子は単純格子なので、慣用セルと基本セルは同じ（a = b, γ = 120° のひし形の柱）。六角柱はその 3 個分で、格子の 6 回軸が見やすい。ただし結晶の対称性は原子配置で決まり、3 回軸までしかない三方晶系の結晶（例：α-石英）もこの格子をとる（c/a = 1.6 は作図用の値）。'};})();
+(function(){const f=hx(2.4);const c=para([0,0,0],f(1,0,0),f(0,1,0),f(0,0,1));
+const T1=f(2/3,1/3,1/3),T2=f(-1/3,1/3,1/3),T3=f(-1/3,-2/3,1/3);
+L.hr={conv:c.E,prim:para([0,0,0],T1,T2,T3).E,
+atoms:at(c.V,G).concat(at([f(2/3,1/3,1/3),f(1/3,2/3,2/3),f(-1/3,1/3,1/3),f(-1/3,-2/3,1/3),f(1/3,-1/3,2/3),f(-2/3,-1/3,2/3)],R)),cen:true,
+lc:'慣用セル（六方軸、R 中心化）',lp:'基本セル（菱面体）',
+info:'六方軸の慣用セルは高さ 1/3, 2/3 に格子点を含み、体積は基本セルの 3 倍。基本セルは a = b = c, α = β = γ の菱面体で、体対角線が c 軸（3 回軸）に一致する（c/a = 2.4 は作図用の値）。'};})();
+let cur,C,S,ry=-0.65,rx=0.42;const cx=190,cy=165;
+function setL(k){cur=L[k];const P=cur.atoms.map(a=>a.p);cur.conv.concat(cur.prim).forEach(e=>P.push(e[0],e[1]));
+const mn=[0,1,2].map(i=>Math.min(...P.map(p=>p[i]))),mx=[0,1,2].map(i=>Math.max(...P.map(p=>p[i])));
+C=mn.map((v,i)=>(v+mx[i])/2);const r=Math.max(...P.map(p=>Math.hypot(p[0]-C[0],p[1]-C[1],p[2]-C[2])));S=140/r;
+document.getElementById('lconv').textContent=cur.lc;document.getElementById('lprim').textContent=cur.lp;
+document.getElementById('lcen').style.display=cur.cen?'':'none';document.getElementById('info').textContent=cur.info;
+document.querySelectorAll('#btns button').forEach(b=>b.classList.toggle('on',b.dataset.k===k));
+draw();}
+function proj(p){const x=p[0]-C[0],y=p[2]-C[2],z=-(p[1]-C[1]);
+const x1=Math.cos(ry)*x+Math.sin(ry)*z,z1=-Math.sin(ry)*x+Math.cos(ry)*z;
+const y2=Math.cos(rx)*y-Math.sin(rx)*z1,z2=Math.sin(rx)*y+Math.cos(rx)*z1;return [cx+S*x1,cy-S*y2,z2];}
+function el(n,a){const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);return e;}
+function draw(){svg.innerHTML='';
+cur.conv.forEach(([a,b])=>{const p=proj(a),q=proj(b);svg.appendChild(el('line',{x1:p[0],y1:p[1],x2:q[0],y2:q[1],stroke:G,'stroke-width':1.3}));});
+cur.prim.forEach(([a,b])=>{const p=proj(a),q=proj(b);svg.appendChild(el('line',{x1:p[0],y1:p[1],x2:q[0],y2:q[1],stroke:'#7F77DD','stroke-width':2.4,'stroke-opacity':0.9}));});
+cur.atoms.map(a=>({a,q:proj(a.p)})).sort((u,v)=>u.q[2]-v.q[2]).forEach(({a,q})=>svg.appendChild(el('circle',{cx:q[0],cy:q[1],r:7.5,fill:a.c,stroke:getComputedStyle(document.body).backgroundColor,'stroke-width':1.2})));}
+document.querySelectorAll('#btns button').forEach(b=>b.addEventListener('click',()=>setL(b.dataset.k)));
+let drag=null;
+svg.addEventListener('pointerdown',e=>{drag=[e.clientX,e.clientY,ry,rx];svg.setPointerCapture(e.pointerId);svg.style.cursor='grabbing';});
+svg.addEventListener('pointermove',e=>{if(!drag)return;ry=drag[2]+(e.clientX-drag[0])*0.01;rx=Math.max(-1.4,Math.min(1.4,drag[3]+(e.clientY-drag[1])*0.01));draw();});
+const end=()=>{drag=null;svg.style.cursor='grab';};svg.addEventListener('pointerup',end);svg.addEventListener('pointercancel',end);
+setL('bcc');
+})();
+</script>
+</body>
+</html>

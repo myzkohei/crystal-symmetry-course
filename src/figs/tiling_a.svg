@@ -1,0 +1,84 @@
+<svg role="img" viewBox="0 0 380 245">
+<polygon points="95.0,180.0 143.0,180.0 119.0,138.4 71.0,138.4" fill="none" fill-opacity="0" stroke="#B4B2A9" stroke-width="1">
+</polygon>
+<polygon points="71.0,138.4 119.0,138.4 95.0,96.9 47.0,96.9" fill="none" fill-opacity="0" stroke="#B4B2A9" stroke-width="1">
+</polygon>
+<polygon points="143.0,180.0 191.0,180.0 167.0,138.4 119.0,138.4" fill="none" fill-opacity="0" stroke="#B4B2A9" stroke-width="1">
+</polygon>
+<polygon points="119.0,138.4 167.0,138.4 143.0,96.9 95.0,96.9" fill="#7F77DD" fill-opacity="0.28" stroke="#534AB7" stroke-width="2">
+</polygon>
+<polygon points="95.0,96.9 143.0,96.9 119.0,55.3 71.0,55.3" fill="none" fill-opacity="0" stroke="#B4B2A9" stroke-width="1">
+</polygon>
+<polygon points="191.0,180.0 239.0,180.0 215.0,138.4 167.0,138.4" fill="none" fill-opacity="0" stroke="#B4B2A9" stroke-width="1">
+</polygon>
+<polygon points="167.0,138.4 215.0,138.4 191.0,96.9 143.0,96.9" fill="none" fill-opacity="0" stroke="#B4B2A9" stroke-width="1">
+</polygon>
+<polygon points="143.0,96.9 191.0,96.9 167.0,55.3 119.0,55.3" fill="none" fill-opacity="0" stroke="#B4B2A9" stroke-width="1">
+</polygon>
+<polygon points="239.0,180.0 287.0,180.0 263.0,138.4 215.0,138.4" fill="none" fill-opacity="0" stroke="#B4B2A9" stroke-width="1">
+</polygon>
+<polygon points="215.0,138.4 263.0,138.4 239.0,96.9 191.0,96.9" fill="none" fill-opacity="0" stroke="#B4B2A9" stroke-width="1">
+</polygon>
+<polygon points="191.0,96.9 239.0,96.9 215.0,55.3 167.0,55.3" fill="none" fill-opacity="0" stroke="#B4B2A9" stroke-width="1">
+</polygon>
+<polygon points="287.0,180.0 335.0,180.0 311.0,138.4 263.0,138.4" fill="none" fill-opacity="0" stroke="#B4B2A9" stroke-width="1">
+</polygon>
+<polygon points="263.0,138.4 311.0,138.4 287.0,96.9 239.0,96.9" fill="none" fill-opacity="0" stroke="#B4B2A9" stroke-width="1">
+</polygon>
+<polygon points="239.0,96.9 287.0,96.9 263.0,55.3 215.0,55.3" fill="none" fill-opacity="0" stroke="#B4B2A9" stroke-width="1">
+</polygon>
+<polygon points="287.0,96.9 335.0,96.9 311.0,55.3 263.0,55.3" fill="none" fill-opacity="0" stroke="#B4B2A9" stroke-width="1">
+</polygon>
+<circle cx="95" cy="180" r="4" fill="#888780">
+</circle>
+<circle cx="143" cy="180" r="4" fill="#888780">
+</circle>
+<circle cx="71" cy="138.43078061834694" r="4" fill="#888780">
+</circle>
+<circle cx="119" cy="138.43078061834694" r="4" fill="#888780">
+</circle>
+<circle cx="47" cy="96.86156123669389" r="4" fill="#888780">
+</circle>
+<circle cx="95" cy="96.86156123669389" r="4" fill="#888780">
+</circle>
+<circle cx="191" cy="180" r="4" fill="#888780">
+</circle>
+<circle cx="167" cy="138.43078061834694" r="4" fill="#888780">
+</circle>
+<circle cx="143" cy="96.86156123669389" r="4" fill="#888780">
+</circle>
+<circle cx="71" cy="55.29234185504083" r="4" fill="#888780">
+</circle>
+<circle cx="119" cy="55.29234185504083" r="4" fill="#888780">
+</circle>
+<circle cx="239" cy="180" r="4" fill="#888780">
+</circle>
+<circle cx="215" cy="138.43078061834694" r="4" fill="#888780">
+</circle>
+<circle cx="191" cy="96.86156123669389" r="4" fill="#888780">
+</circle>
+<circle cx="167" cy="55.29234185504083" r="4" fill="#888780">
+</circle>
+<circle cx="287" cy="180" r="4" fill="#888780">
+</circle>
+<circle cx="263" cy="138.43078061834694" r="4" fill="#888780">
+</circle>
+<circle cx="239" cy="96.86156123669389" r="4" fill="#888780">
+</circle>
+<circle cx="215" cy="55.29234185504083" r="4" fill="#888780">
+</circle>
+<circle cx="335" cy="180" r="4" fill="#888780">
+</circle>
+<circle cx="311" cy="138.43078061834694" r="4" fill="#888780">
+</circle>
+<circle cx="287" cy="96.86156123669389" r="4" fill="#888780">
+</circle>
+<circle cx="263" cy="55.29234185504083" r="4" fill="#888780">
+</circle>
+<circle cx="335" cy="96.86156123669389" r="4" fill="#888780">
+</circle>
+<circle cx="311" cy="55.29234185504083" r="4" fill="#888780">
+</circle>
+<text x="190" y="215" text-anchor="middle" font-size="13" font-weight="500" style="fill:var(--fg)">① 格子 = 同じ向きの菱形柱の敷き詰め</text>
+<text x="190" y="235" text-anchor="middle" font-size="12" font-weight="400" style="fill:var(--sub)">紫の 1 個を平行移動するだけで全体が埋まる</text>
+</svg>

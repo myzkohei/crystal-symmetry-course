@@ -1,0 +1,30 @@
+:root{--bg:#ffffff;--fg:#1f1e1d;--sub:#5f5e5a;--mute:#888780;--line:#d3d1c7;--btn:#f1efe8;--acc:#185FA5;--p:#1f1e1d;--s:#5f5e5a;--t:#888780}
+@media (prefers-color-scheme: dark){:root{--bg:#1f1e1d;--fg:#f1efe8;--sub:#b4b2a9;--mute:#888780;--line:#444441;--btn:#2c2c2a;--acc:#85B7EB;--p:#f1efe8;--s:#b4b2a9;--t:#888780}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Hiragino Sans","Noto Sans JP",system-ui,sans-serif;line-height:1.75}
+nav.top{border-bottom:1px solid var(--line);padding:10px 16px;font-size:14px;display:flex;flex-wrap:wrap;gap:4px 14px;max-width:760px;margin:0 auto}
+nav.top a{color:var(--sub);text-decoration:none}
+nav.top a.cur{color:var(--acc);font-weight:600}
+main{max-width:760px;margin:0 auto;padding:20px 16px 48px}
+h1{font-size:22px;font-weight:600;margin:0 0 6px}
+h2{font-size:18px;font-weight:600;margin:32px 0 8px;padding-top:8px;border-top:1px solid var(--line)}
+p{margin:8px 0}
+.lead{color:var(--sub)}
+figure{margin:16px 0;padding:12px;border:1px solid var(--line);border-radius:10px}
+figure svg{display:block;width:100%;max-width:520px;margin:0 auto}
+figcaption{font-size:13px;color:var(--sub);margin-top:6px}
+pre{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13.5px;line-height:1.6;padding:10px 12px;border:1px solid var(--line);border-radius:8px;overflow-x:auto}
+table{border-collapse:collapse;font-size:14px;margin:10px 0;width:100%}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{background:var(--btn)}
+ul.cards{list-style:none;padding:0;display:grid;gap:10px}
+ul.cards a{display:block;padding:12px 14px;border:1px solid var(--line);border-radius:10px;text-decoration:none;color:var(--fg)}
+ul.cards a b{display:block;color:var(--acc)}
+ul.cards a span{font-size:14px;color:var(--sub)}
+/* SVG figure classes */
+svg .t{font-size:14px;fill:var(--fg)}
+svg .th{font-size:14px;font-weight:600;fill:var(--fg)}
+svg .ts{font-size:12px;fill:var(--sub)}
+svg .c-coral>circle,svg circle.c-coral{fill:#F0997B;stroke:#993C1D;stroke-width:.6}
+svg .c-gray>circle,svg circle.c-gray{fill:#D3D1C7;stroke:#5F5E5A;stroke-width:.6}
+table.cls td:nth-child(-n+3),table.cls th:nth-child(-n+3){white-space:nowrap}

@@ -1,0 +1,66 @@
+<svg role="img" viewBox="0 0 380 250">
+<polygon points="80.0,170.0 150.0,170.0 115.0,109.4 45.0,109.4" fill="none" fill-opacity="0" stroke="#B4B2A9" stroke-width="1">
+</polygon>
+<polygon points="150.0,170.0 220.0,170.0 185.0,109.4 115.0,109.4" fill="none" fill-opacity="0" stroke="#B4B2A9" stroke-width="1">
+</polygon>
+<polygon points="115.0,109.4 185.0,109.4 150.0,48.8 80.0,48.8" fill="#7F77DD" fill-opacity="0.28" stroke="#534AB7" stroke-width="2">
+</polygon>
+<polygon points="220.0,170.0 290.0,170.0 255.0,109.4 185.0,109.4" fill="none" fill-opacity="0" stroke="#B4B2A9" stroke-width="1">
+</polygon>
+<polygon points="185.0,109.4 255.0,109.4 220.0,48.8 150.0,48.8" fill="none" fill-opacity="0" stroke="#B4B2A9" stroke-width="1">
+</polygon>
+<polygon points="255.0,109.4 325.0,109.4 290.0,48.8 220.0,48.8" fill="none" fill-opacity="0" stroke="#B4B2A9" stroke-width="1">
+</polygon>
+<circle cx="80" cy="170" r="4" fill="#888780">
+</circle>
+<circle cx="150" cy="170" r="4" fill="#888780">
+</circle>
+<circle cx="45" cy="109.3782217350893" r="4" fill="#888780">
+</circle>
+<circle cx="115" cy="109.3782217350893" r="4" fill="#888780">
+</circle>
+<circle cx="220" cy="170" r="4" fill="#888780">
+</circle>
+<circle cx="185" cy="109.3782217350893" r="4" fill="#888780">
+</circle>
+<circle cx="80" cy="48.756443470178596" r="4" fill="#888780">
+</circle>
+<circle cx="150" cy="48.756443470178596" r="4" fill="#888780">
+</circle>
+<circle cx="290" cy="170" r="4" fill="#888780">
+</circle>
+<circle cx="255" cy="109.3782217350893" r="4" fill="#888780">
+</circle>
+<circle cx="220" cy="48.756443470178596" r="4" fill="#888780">
+</circle>
+<circle cx="325" cy="109.3782217350893" r="4" fill="#888780">
+</circle>
+<circle cx="290" cy="48.756443470178596" r="4" fill="#888780">
+</circle>
+<circle cx="114.99999999999999" cy="149.7927405783631" r="4" fill="#D85A30">
+</circle>
+<circle cx="80" cy="129.5854811567262" r="4" fill="#1D9E75">
+</circle>
+<circle cx="185" cy="149.7927405783631" r="4" fill="#D85A30">
+</circle>
+<circle cx="150" cy="129.5854811567262" r="4" fill="#1D9E75">
+</circle>
+<circle cx="150" cy="89.1709623134524" r="4" fill="#D85A30">
+</circle>
+<circle cx="115.00000000000001" cy="68.9637028918155" r="4" fill="#1D9E75">
+</circle>
+<circle cx="255.00000000000003" cy="149.7927405783631" r="4" fill="#D85A30">
+</circle>
+<circle cx="220" cy="129.5854811567262" r="4" fill="#1D9E75">
+</circle>
+<circle cx="220" cy="89.1709623134524" r="4" fill="#D85A30">
+</circle>
+<circle cx="185" cy="68.9637028918155" r="4" fill="#1D9E75">
+</circle>
+<circle cx="290" cy="89.1709623134524" r="4" fill="#D85A30">
+</circle>
+<circle cx="254.99999999999997" cy="68.9637028918155" r="4" fill="#1D9E75">
+</circle>
+<text x="190" y="212" text-anchor="middle" font-size="13" font-weight="500" style="fill:var(--fg)">③ hR：六方軸のセルの敷き詰め（R 中心化）</text>
+<text x="190" y="232" text-anchor="middle" font-size="12" font-weight="400" style="fill:var(--sub)">各菱形の内部に z = 1/3 と z = 2/3 の格子点</text>
+</svg>

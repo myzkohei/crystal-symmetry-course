@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>対称操作の行列｜結晶の対称性と格子</title><link rel="stylesheet" href="style.css"></head>
+<body><nav class="top"><a href="index.html">トップ</a><a href="symmetry-matrices.html" class="cur">対称操作の行列</a><a href="basis-change.html">基底変換 P</a><a href="crystal-systems.html">晶系と格子系</a><a href="cells.html">慣用セルと基本セル</a><a href="basis-vectors.html">基底ベクトル</a></nav><main><h1>対称操作の行列</h1>
+<p class="lead">標準の結晶軸（慣用セル）で書くと、点群の対称操作の行列要素は 0, ±1 になる。</p>
+<h2>基底によらず言えること</h2>
+<ul><li>格子点を格子点に写すので、結晶座標での行列 W は整数行列。</li><li>det W = ±1（回転は +1、鏡映・反転・回反は −1）。</li><li>回転角 θ の回転では tr W = 1 + 2cos θ が整数。よって θ は 60°, 90°, 120°, 180°, 360° に限られる（結晶学的制限定理）。</li></ul>
+<p>0, ±1 に収まるのは基底の選び方による。斜めの基底を選ぶと 2 以上の整数も現れる（例：正方格子で b₁ = a₁、b₂ = a₁ + a₂ とすると 90° 回転は ((−1, −2), (1, 1))）。</p>
+<h2>六方軸の 3 回回転</h2>
+<figure><svg viewBox="0 0 380 400" role="img" aria-label="六方軸の3回回転と行列"><defs><marker id="hP" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#534AB7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="hC" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#D85A30" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<g fill="var(--t)" opacity="0.6"><circle cx="55" cy="92" r="3"/><circle cx="145" cy="92" r="3"/><circle cx="235" cy="92" r="3"/><circle cx="325" cy="92" r="3"/><circle cx="100" cy="170" r="3"/><circle cx="190" cy="170" r="3"/><circle cx="280" cy="170" r="3"/><circle cx="55" cy="248" r="3"/><circle cx="145" cy="248" r="3"/><circle cx="235" cy="248" r="3"/><circle cx="325" cy="248" r="3"/></g>
+<line x1="190" y1="170" x2="276" y2="170" stroke="#534AB7" stroke-width="2" marker-end="url(#hP)"/>
+<line x1="190" y1="170" x2="147" y2="96" stroke="#534AB7" stroke-width="2" marker-end="url(#hP)"/>
+<line x1="190" y1="170" x2="147" y2="244" stroke="#D85A30" stroke-width="2" stroke-dasharray="5 3" marker-end="url(#hC)"/>
+<path d="M230 170 A40 40 0 0 0 172 134" fill="none" stroke="#D85A30" stroke-width="1" marker-end="url(#hC)"/>
+<path d="M175 144 A30 30 0 0 0 175 196" fill="none" stroke="#D85A30" stroke-width="1" marker-end="url(#hC)"/>
+<text class="th" x="290" y="175">a₁</text><text class="th" x="60" y="72">a₂ = R a₁</text><text class="th" x="40" y="280">R a₂ = −a₁ − a₂</text><text class="ts" x="250" y="135">120° 回転</text>
+<text class="th" x="100" y="345" text-anchor="middle" dominant-baseline="central">W =</text>
+<path d="M150 315 L142 315 L142 375 L150 375" fill="none" stroke="var(--p)" stroke-width="1"/><path d="M250 315 L258 315 L258 375 L250 375" fill="none" stroke="var(--p)" stroke-width="1"/>
+<rect x="157" y="312" width="38" height="66" rx="4" fill="none" stroke="#534AB7" stroke-width="0.6" stroke-dasharray="3 2"/><rect x="205" y="312" width="38" height="66" rx="4" fill="none" stroke="#D85A30" stroke-width="0.6" stroke-dasharray="3 2"/>
+<text class="t" x="176" y="330" text-anchor="middle" dominant-baseline="central">0</text><text class="t" x="176" y="360" text-anchor="middle" dominant-baseline="central">1</text><text class="t" x="224" y="330" text-anchor="middle" dominant-baseline="central">−1</text><text class="t" x="224" y="360" text-anchor="middle" dominant-baseline="central">−1</text>
+<text class="ts" x="176" y="392" text-anchor="middle">R a₁</text><text class="ts" x="224" y="392" text-anchor="middle">R a₂</text></svg><figcaption>行列の各列は、回した基底ベクトルを元の基底で表した係数。ab 面内に基底が 2 本しかないため、3 本目の等価なベクトル −a₁ − a₂ を使い −1 が現れる。</figcaption></figure>
+<h2>菱面体軸の 3 回回転</h2>
+<figure><svg viewBox="0 0 380 400" role="img" aria-label="菱面体軸の3回回転と行列"><defs><marker id="rP" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#534AB7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="rC" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#D85A30" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<circle cx="190" cy="160" r="4" fill="var(--p)"/>
+<line x1="190" y1="160" x2="190" y2="79" stroke="#534AB7" stroke-width="2" marker-end="url(#rP)"/>
+<line x1="190" y1="160" x2="120" y2="200" stroke="#534AB7" stroke-width="2" marker-end="url(#rP)"/>
+<line x1="190" y1="160" x2="260" y2="200" stroke="#534AB7" stroke-width="2" marker-end="url(#rP)"/>
+<path d="M180.4 105.8 A55 55 0 0 0 138.3 178.8" fill="none" stroke="#D85A30" stroke-width="1" marker-end="url(#rC)"/>
+<path d="M147.9 195.4 A55 55 0 0 0 232.1 195.4" fill="none" stroke="#D85A30" stroke-width="1" marker-end="url(#rC)"/>
+<path d="M241.7 178.8 A55 55 0 0 0 199.6 105.8" fill="none" stroke="#D85A30" stroke-width="1" marker-end="url(#rC)"/>
+<text class="th" x="198" y="76">a₁</text><text class="th" x="108" y="218" text-anchor="end">a₂</text><text class="th" x="272" y="218">a₃</text>
+<text class="ts" x="190" y="252" text-anchor="middle">[111] 方向から見た投影（中心が 3 回軸）</text>
+<text class="th" x="95" y="325" text-anchor="middle" dominant-baseline="central">W =</text>
+<path d="M146 290 L138 290 L138 360 L146 360" fill="none" stroke="var(--p)" stroke-width="1"/><path d="M234 290 L242 290 L242 360 L234 360" fill="none" stroke="var(--p)" stroke-width="1"/>
+<text class="t" x="160" y="300" text-anchor="middle" dominant-baseline="central">0</text><text class="t" x="190" y="300" text-anchor="middle" dominant-baseline="central">0</text><text class="t" x="220" y="300" text-anchor="middle" dominant-baseline="central">1</text><text class="t" x="160" y="325" text-anchor="middle" dominant-baseline="central">1</text><text class="t" x="190" y="325" text-anchor="middle" dominant-baseline="central">0</text><text class="t" x="220" y="325" text-anchor="middle" dominant-baseline="central">0</text><text class="t" x="160" y="350" text-anchor="middle" dominant-baseline="central">0</text><text class="t" x="190" y="350" text-anchor="middle" dominant-baseline="central">1</text><text class="t" x="220" y="350" text-anchor="middle" dominant-baseline="central">0</text>
+<text class="ts" x="160" y="382" text-anchor="middle">Ra₁</text><text class="ts" x="190" y="382" text-anchor="middle">Ra₂</text><text class="ts" x="220" y="382" text-anchor="middle">Ra₃</text></svg><figcaption>等価な 3 方向がすべて基底なので、a₁ → a₂ → a₃ → a₁ と入れ替わるだけ。行列は置換行列で、立方晶の [111] まわりの 3 回回転と同じ形。</figcaption></figure>
+<h2>操作ごとの det と trace</h2>
+<table><tr><th>種類</th><th>操作</th><th>det</th><th>trace</th></tr>
+<tr><td>回転</td><td>1, 2, 3, 4, 6</td><td>+1</td><td>1 + 2cos θ</td></tr>
+<tr><td>反転</td><td>1̄</td><td>−1</td><td>−3</td></tr>
+<tr><td>鏡映</td><td>m（= 2̄）</td><td>−1</td><td>1</td></tr>
+<tr><td>回反</td><td>3̄, 4̄, 6̄</td><td>−1</td><td>−(1 + 2cos θ)</td></tr></table>
+<p>trace と det は相似変換 W′ = P⁻¹WP で変わらないので、どの基底で計算しても同じ値になる。</p></main></body></html>
