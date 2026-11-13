@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>対称操作の行列｜結晶の対称性と格子</title><link rel="stylesheet" href="style.css"></head>
+<title>対称操作の行列｜結晶の対称性と格子</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="katex/katex.min.css"><script defer src="katex/katex.min.js"></script><script defer src="katex/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'\\(',right:'\\)',display:false}],ignoredTags:['script','noscript','style','textarea','pre','code']})"></script></head>
 <body><nav class="top"><a href="index.html">トップ</a><a href="symmetry-matrices.html" class="cur">対称操作の行列</a><a href="basis-change.html">基底変換 P</a><a href="crystal-systems.html">晶系と格子系</a><a href="cells.html">慣用セルと基本セル</a><a href="basis-vectors.html">基底ベクトル</a></nav><main><h1>対称操作の行列</h1>
 <p class="lead">標準の結晶軸（慣用セル）で書くと、点群の対称操作の行列要素は 0, ±1 になる。</p>
 <h2>基底によらず言えること</h2>
@@ -38,7 +38,7 @@
 <h2>操作ごとの det と trace</h2>
 <table><tr><th>種類</th><th>操作</th><th>det</th><th>trace</th></tr>
 <tr><td>回転</td><td>1, 2, 3, 4, 6</td><td>+1</td><td>1 + 2cos θ</td></tr>
-<tr><td>反転</td><td>1̄</td><td>−1</td><td>−3</td></tr>
-<tr><td>鏡映</td><td>m（= 2̄）</td><td>−1</td><td>1</td></tr>
-<tr><td>回反</td><td>3̄, 4̄, 6̄</td><td>−1</td><td>−(1 + 2cos θ)</td></tr></table>
+<tr><td>反転</td><td>\(\bar{1}\)</td><td>−1</td><td>−3</td></tr>
+<tr><td>鏡映</td><td>m（= \(\bar{2}\)）</td><td>−1</td><td>1</td></tr>
+<tr><td>回反</td><td>\(\bar{3}\), \(\bar{4}\), \(\bar{6}\)</td><td>−1</td><td>−(1 + 2cos θ)</td></tr></table>
 <p>trace と det は相似変換 W′ = P⁻¹WP で変わらないので、どの基底で計算しても同じ値になる。</p></main></body></html>

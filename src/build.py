@@ -2,12 +2,30 @@ import re, shutil
 PAGES=[("index.html","トップ"),("symmetry-matrices.html","対称操作の行列"),("basis-change.html","基底変換 P"),("crystal-systems.html","晶系と格子系"),("cells.html","慣用セルと基本セル"),("basis-vectors.html","基底ベクトル")]
 def nav(cur):
     return '<nav class="top">'+''.join(f'<a href="{f}"{" class=\"cur\"" if f==cur else ""}>{t}</a>' for f,t in PAGES)+'</nav>'
+
+import re as _re
+_TEX=[("Fd3̄m",r"Fd\bar{3}m"),("Fm3̄m",r"Fm\bar{3}m"),("Im3̄m",r"Im\bar{3}m"),("Pm3̄m",r"Pm\bar{3}m"),
+("R3̄c",r"R\bar{3}c"),("R3̄m",r"R\bar{3}m"),("P1̄",r"P\bar{1}"),("I4₁/amd",r"I4_1/amd"),("P2₁/c",r"P2_1/c"),
+("P3₁21",r"P3_121"),("P3₂21",r"P3_221"),("P4₂/mnm",r"P4_2/mnm"),("P6₃/mmc",r"P6_3/mmc"),("P6₃mc",r"P6_3mc"),
+("C2/c",r"C2/c"),("Pnma",r"Pnma"),("Cmce",r"Cmce"),("Cmcm",r"Cmcm"),("Imma",r"Imma"),("Fddd",r"Fddd"),
+("3̄m",r"\bar{3}m"),("1̄",r"\bar{1}"),("2̄",r"\bar{2}"),("3̄",r"\bar{3}"),("4̄",r"\bar{4}"),("6̄",r"\bar{6}")]
+def texify(html):
+    parts=_re.split(r'(<svg.*?</svg>|<pre.*?</pre>|<a [^>]*>)',html,flags=_re.S)
+    out=[]
+    for i,seg in enumerate(parts):
+        if i%2==1: out.append(seg); continue
+        for a,b in _TEX:
+            seg=seg.replace(a,"\x00"+b+"\x01")
+        out.append(seg.replace("\x00",r"\(").replace("\x01",r"\)"))
+    return "".join(out)
+KATEX='''<link rel="stylesheet" href="katex/katex.min.css"><script defer src="katex/katex.min.js"></script><script defer src="katex/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'\\\\(',right:'\\\\)',display:false}],ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>'''
+
 def page(fn,title,body):
     html=f'''<!DOCTYPE html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{title}｜結晶の対称性と格子</title><link rel="stylesheet" href="style.css"></head>
+<title>{title}｜結晶の対称性と格子</title><link rel="stylesheet" href="style.css">{KATEX}</head>
 <body>{nav(fn)}<main>{body}</main></body></html>'''
-    open(fn,'w',encoding='utf-8').write(html)
+    open(fn,'w',encoding='utf-8').write(texify(html))
 
 def mk(id_,col): return f'<marker id="{id_}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="{col}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>'
 PU,CO='#534AB7','#D85A30'
@@ -83,7 +101,7 @@ SVG_LAT=f'''<svg viewBox="0 0 380 290" role="img" aria-label="六方格子hPと�
 <g class="c-coral">''' + ''.join(f'<circle cx="{x}" cy="{y}" r="8"/>' for x,y in L_CORN+R_CORN+R_IN+[(50,248)]) + '</g><g fill="var(--p)">' + ''.join(hexagon(x,y) for x,y in L_CORN+[(180,248)]) + ''.join(tri(x,y) for x,y in R_CORN+R_IN+[(50,271)]) + '''</g>
 <text class="ts" x="279" y="154" text-anchor="end">1/3</text><text class="ts" x="266" y="134">2/3</text>
 <text class="th" x="92" y="202" text-anchor="middle">hP（六方格子）</text><text class="ts" x="92" y="222" text-anchor="middle">格子の対称 6/mmm</text>
-<text class="th" x="272" y="202" text-anchor="middle">hR（菱面体格子）</text><text class="ts" x="272" y="222" text-anchor="middle">格子の対称 3̄m</text>
+<text class="th" x="272" y="202" text-anchor="middle">hR（菱面体格子）</text><text class="ts" x="272" y="222" text-anchor="middle">格子の対称 <tspan text-decoration="overline">3</tspan>m</text>
 <text class="ts" x="62" y="252">格子点</text><text class="ts" x="194" y="252">6 回軸</text><text class="ts" x="62" y="276">3 回軸</text></svg>'''
 import math
 def ring(cx,cy,n,r=12,start=0):

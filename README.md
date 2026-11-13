@@ -18,6 +18,7 @@
 
 - **文章や表、平面の図を直す**：`src/build.py` の中の該当箇所を書き換え、リポジトリの最上位で `python3 src/build.py` を実行すると、各 HTML が作り直される。HTML を直接書き換えてもよいが、その場合は次に build.py を実行したときに上書きされる。
 - **平面の図**：SVG としてページに直接書き込まれている。`src/figs/` には六角柱と単位胞の図の SVG がある。
+- **記号（空間群・回反軸など）**：本文中の \(R\bar{3}c\) のような記号は TeX で書き、同梱の KaTeX（`katex/`、MIT ライセンス）で表示する。オフラインでも表示できる。`src/build.py` の `_TEX` の対応表に載っている記号（例：`R3̄c`）は、ページ生成時に自動で TeX 表記に変換される。SVG の図の中では TeX が使えないので、上線は `<tspan text-decoration="overline">3</tspan>` で表す。
 - **立体図**：`src/3d/` の HTML（JavaScript で描画）が元。説明文や格子のデータはその中にある。
 
 ## 公開（GitHub Pages）

@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>晶系と格子系｜結晶の対称性と格子</title><link rel="stylesheet" href="style.css"></head>
+<title>晶系と格子系｜結晶の対称性と格子</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="katex/katex.min.css"><script defer src="katex/katex.min.js"></script><script defer src="katex/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'\\(',right:'\\)',display:false}],ignoredTags:['script','noscript','style','textarea','pre','code']})"></script></head>
 <body><nav class="top"><a href="index.html">トップ</a><a href="symmetry-matrices.html">対称操作の行列</a><a href="basis-change.html">基底変換 P</a><a href="crystal-systems.html" class="cur">晶系と格子系</a><a href="cells.html">慣用セルと基本セル</a><a href="basis-vectors.html">基底ベクトル</a></nav><main><h1>晶系と格子系</h1>
 <p class="lead">晶族・晶系・ブラベー格子の型は、単位胞の形ではなく、結晶がもつ対称要素、具体的には回転軸（回反軸を含む）で決まる。セルの形は、その回転軸があれば必ず満たされる結果（必要条件）にすぎない。</p>
 <h2>分類を決めるもの：回転軸</h2>
-<p>各晶系は、次の回転軸をもつかどうかで決まる。鏡映面は 2̄ 軸、反転中心は 1̄ として回反軸に含める。晶族も同じく回転軸で決まり、3 回軸または 6 回軸を 1 本もつ三方晶系と六方晶系が、まとめて六方晶族になる。</p>
+<p>各晶系は、次の回転軸をもつかどうかで決まる。鏡映面は \(\bar{2}\) 軸、反転中心は \(\bar{1}\) として回反軸に含める。晶族も同じく回転軸で決まり、3 回軸または 6 回軸を 1 本もつ三方晶系と六方晶系が、まとめて六方晶族になる。</p>
 <table class="cls"><tr><th>晶族</th><th>晶系</th><th>決め手となる回転軸</th><th>セルの形（結果として満たす条件）</th></tr>
-<tr><td>三斜</td><td>三斜晶系</td><td>なし（1 または 1̄ のみ）</td><td>制約なし</td></tr>
-<tr><td>単斜</td><td>単斜晶系</td><td>2 回軸または 2̄ 軸が 1 本</td><td>2 回軸を b 軸にとると α = γ = 90°</td></tr>
-<tr><td>直方</td><td>直方晶系</td><td>互いに直交する 2 回軸または 2̄ 軸が 3 本</td><td>α = β = γ = 90°</td></tr>
-<tr><td>正方</td><td>正方晶系</td><td>4 回軸または 4̄ 軸が 1 本</td><td>a = b, α = β = γ = 90°</td></tr>
-<tr><td rowspan="2">六方</td><td>三方晶系</td><td>3 回軸または 3̄ 軸が 1 本</td><td>六方軸で a = b, γ = 120°（hR は菱面体軸でも記述可）</td></tr>
-<tr><td>六方晶系</td><td>6 回軸または 6̄ 軸が 1 本</td><td>a = b, γ = 120°</td></tr>
-<tr><td>立方</td><td>立方晶系</td><td>体対角線方向の 3 回軸または 3̄ 軸が 4 本</td><td>a = b = c, α = β = γ = 90°</td></tr></table>
+<tr><td>三斜</td><td>三斜晶系</td><td>なし（1 または \(\bar{1}\) のみ）</td><td>制約なし</td></tr>
+<tr><td>単斜</td><td>単斜晶系</td><td>2 回軸または \(\bar{2}\) 軸が 1 本</td><td>2 回軸を b 軸にとると α = γ = 90°</td></tr>
+<tr><td>直方</td><td>直方晶系</td><td>互いに直交する 2 回軸または \(\bar{2}\) 軸が 3 本</td><td>α = β = γ = 90°</td></tr>
+<tr><td>正方</td><td>正方晶系</td><td>4 回軸または \(\bar{4}\) 軸が 1 本</td><td>a = b, α = β = γ = 90°</td></tr>
+<tr><td rowspan="2">六方</td><td>三方晶系</td><td>3 回軸または \(\bar{3}\) 軸が 1 本</td><td>六方軸で a = b, γ = 120°（hR は菱面体軸でも記述可）</td></tr>
+<tr><td>六方晶系</td><td>6 回軸または \(\bar{6}\) 軸が 1 本</td><td>a = b, γ = 120°</td></tr>
+<tr><td>立方</td><td>立方晶系</td><td>体対角線方向の 3 回軸または \(\bar{3}\) 軸が 4 本</td><td>a = b = c, α = β = γ = 90°</td></tr></table>
 <p>逆向きは成り立たない。セルの形が条件を満たしていても、その回転軸がなければその晶系・晶族ではない（次の例）。</p>
 <h2>同じ形のセルでも晶系が違う例</h2>
 <figure><svg viewBox="0 0 380 210" role="img" aria-label="同じ長方形セルでも直方晶と単斜晶がある例">
@@ -32,8 +32,8 @@
 <g class="c-coral"><circle cx="75" cy="170" r="8"/><circle cx="145" cy="170" r="8"/><circle cx="40" cy="109.4" r="8"/><circle cx="110" cy="109.4" r="8"/><circle cx="255" cy="170" r="8"/><circle cx="325" cy="170" r="8"/><circle cx="220" cy="109.4" r="8"/><circle cx="290" cy="109.4" r="8"/><circle cx="290" cy="149.8" r="8"/><circle cx="255" cy="129.6" r="8"/><circle cx="50" cy="248" r="8"/></g><g fill="var(--p)"><polygon points="80.0,170.0 77.5,174.3 72.5,174.3 70.0,170.0 72.5,165.7 77.5,165.7"/><polygon points="150.0,170.0 147.5,174.3 142.5,174.3 140.0,170.0 142.5,165.7 147.5,165.7"/><polygon points="45.0,109.4 42.5,113.7 37.5,113.7 35.0,109.4 37.5,105.1 42.5,105.1"/><polygon points="115.0,109.4 112.5,113.7 107.5,113.7 105.0,109.4 107.5,105.1 112.5,105.1"/><polygon points="185.0,248.0 182.5,252.3 177.5,252.3 175.0,248.0 177.5,243.7 182.5,243.7"/><polygon points="255.0,165.0 250.7,172.5 259.3,172.5"/><polygon points="325.0,165.0 320.7,172.5 329.3,172.5"/><polygon points="220.0,104.4 215.7,111.9 224.3,111.9"/><polygon points="290.0,104.4 285.7,111.9 294.3,111.9"/><polygon points="290.0,144.8 285.7,152.3 294.3,152.3"/><polygon points="255.0,124.6 250.7,132.1 259.3,132.1"/><polygon points="50.0,266.0 45.7,273.5 54.3,273.5"/></g>
 <text class="ts" x="279" y="154" text-anchor="end">1/3</text><text class="ts" x="266" y="134">2/3</text>
 <text class="th" x="92" y="202" text-anchor="middle">hP（六方格子）</text><text class="ts" x="92" y="222" text-anchor="middle">格子の対称 6/mmm</text>
-<text class="th" x="272" y="202" text-anchor="middle">hR（菱面体格子）</text><text class="ts" x="272" y="222" text-anchor="middle">格子の対称 3̄m</text>
-<text class="ts" x="62" y="252">格子点</text><text class="ts" x="194" y="252">6 回軸</text><text class="ts" x="62" y="276">3 回軸</text></svg><figcaption>hR では高さ 1/3, 2/3 に格子点が加わる。60° 回すと高さが合わないので 6 回軸は失われ、格子の対称は 3̄m に下がる。どの格子点も並進で重なるので、すべての格子点に 3 回軸がある。</figcaption></figure>
+<text class="th" x="272" y="202" text-anchor="middle">hR（菱面体格子）</text><text class="ts" x="272" y="222" text-anchor="middle">格子の対称 <tspan text-decoration="overline">3</tspan>m</text>
+<text class="ts" x="62" y="252">格子点</text><text class="ts" x="194" y="252">6 回軸</text><text class="ts" x="62" y="276">3 回軸</text></svg><figcaption>hR では高さ 1/3, 2/3 に格子点が加わる。60° 回すと高さが合わないので 6 回軸は失われ、格子の対称は \(\bar{3}m\) に下がる。どの格子点も並進で重なるので、すべての格子点に 3 回軸がある。</figcaption></figure>
 <h2>六角柱と単位胞（菱形柱）の関係</h2>
 <p>六方格子を六角柱で描くことが多いが、格子を生み出しているのは菱形柱（単位胞）1 個の平行移動である。どの図も c 軸方向から見下ろしたもので、柱は紙面に垂直に伸びている。</p>
 <figure><svg role="img" viewBox="0 0 380 245">
@@ -224,20 +224,20 @@
 <h2>晶族・ブラベー格子・晶系の対応と結晶の例</h2>
 <p>教科書でいう「広義の六方格子」は晶族（crystal family）にあたる。晶族は 6 つで、ブラベー格子（14）と晶系（7）で分けると次のようになる。違いが出るのは六方晶族の中だけ。</p>
 <table class="cls cls3"><tr><th>晶族</th><th>ブラベー格子</th><th>晶系</th><th>結晶の例（空間群）</th></tr>
-<tr><td>三斜</td><td>aP</td><td>三斜晶系</td><td>硫酸銅五水和物 CuSO₄·5H₂O（P1̄）、藍晶石 Al₂SiO₅（P1̄）</td></tr>
-<tr><td>単斜</td><td>mP</td><td>単斜晶系</td><td>単斜晶ジルコニア ZrO₂（P2₁/c）</td></tr>
-<tr><td>単斜</td><td>mC</td><td>単斜晶系</td><td>石膏 CaSO₄·2H₂O（C2/c）</td></tr>
-<tr><td>直方</td><td>oP</td><td>直方晶系</td><td>アラゴナイト CaCO₃（Pnma）</td></tr>
-<tr><td>直方</td><td>oC</td><td>直方晶系</td><td>α-ガリウム（Cmce）、α-ウラン（Cmcm）</td></tr>
-<tr><td>直方</td><td>oI</td><td>直方晶系</td><td>CeCu₂（Imma）</td></tr>
-<tr><td>直方</td><td>oF</td><td>直方晶系</td><td>α-硫黄 S₈（Fddd）</td></tr>
-<tr><td>正方</td><td>tP</td><td>正方晶系</td><td>ルチル TiO₂（P4₂/mnm）</td></tr>
-<tr><td>正方</td><td>tI</td><td>正方晶系</td><td>アナターゼ TiO₂、β-スズ（I4₁/amd）</td></tr>
-<tr><td><b>六方（広義）</b></td><td><b>hP</b></td><td><b>三方晶系</b></td><td>α-石英 SiO₂（P3₁21 / P3₂21）、テルル（P3₁21 / P3₂21）</td></tr>
-<tr><td><b>六方（広義）</b></td><td><b>hP</b></td><td><b>六方晶系</b></td><td>マグネシウム（P6₃/mmc）、グラファイト（P6₃/mmc）、ウルツ鉱 ZnO（P6₃mc）</td></tr>
-<tr><td><b>六方（広義）</b></td><td><b>hR</b></td><td><b>三方晶系</b></td><td>コランダム α-Al₂O₃（R3̄c）、方解石 CaCO₃（R3̄c）、ビスマス（R3̄m）</td></tr>
+<tr><td>三斜</td><td>aP</td><td>三斜晶系</td><td>硫酸銅五水和物 CuSO₄·5H₂O（\(P\bar{1}\)）、藍晶石 Al₂SiO₅（\(P\bar{1}\)）</td></tr>
+<tr><td>単斜</td><td>mP</td><td>単斜晶系</td><td>単斜晶ジルコニア ZrO₂（\(P2_1/c\)）</td></tr>
+<tr><td>単斜</td><td>mC</td><td>単斜晶系</td><td>石膏 CaSO₄·2H₂O（\(C2/c\)）</td></tr>
+<tr><td>直方</td><td>oP</td><td>直方晶系</td><td>アラゴナイト CaCO₃（\(Pnma\)）</td></tr>
+<tr><td>直方</td><td>oC</td><td>直方晶系</td><td>α-ガリウム（\(Cmce\)）、α-ウラン（\(Cmcm\)）</td></tr>
+<tr><td>直方</td><td>oI</td><td>直方晶系</td><td>CeCu₂（\(Imma\)）</td></tr>
+<tr><td>直方</td><td>oF</td><td>直方晶系</td><td>α-硫黄 S₈（\(Fddd\)）</td></tr>
+<tr><td>正方</td><td>tP</td><td>正方晶系</td><td>ルチル TiO₂（\(P4_2/mnm\)）</td></tr>
+<tr><td>正方</td><td>tI</td><td>正方晶系</td><td>アナターゼ TiO₂、β-スズ（\(I4_1/amd\)）</td></tr>
+<tr><td><b>六方（広義）</b></td><td><b>hP</b></td><td><b>三方晶系</b></td><td>α-石英 SiO₂（\(P3_121\) / \(P3_221\)）、テルル（\(P3_121\) / \(P3_221\)）</td></tr>
+<tr><td><b>六方（広義）</b></td><td><b>hP</b></td><td><b>六方晶系</b></td><td>マグネシウム（\(P6_3/mmc\)）、グラファイト（\(P6_3/mmc\)）、ウルツ鉱 ZnO（\(P6_3mc\)）</td></tr>
+<tr><td><b>六方（広義）</b></td><td><b>hR</b></td><td><b>三方晶系</b></td><td>コランダム α-Al₂O₃（\(R\bar{3}c\)）、方解石 CaCO₃（\(R\bar{3}c\)）、ビスマス（\(R\bar{3}m\)）</td></tr>
 <tr><td><b>六方（広義）</b></td><td><b>hR</b></td><td><b>六方晶系</b></td><td>存在しない（R 格子は 6 回軸と両立しない）</td></tr>
-<tr><td>立方</td><td>cP</td><td>立方晶系</td><td>塩化セシウム CsCl（Pm3̄m）、チタン酸ストロンチウム SrTiO₃（Pm3̄m）</td></tr>
-<tr><td>立方</td><td>cI</td><td>立方晶系</td><td>α-鉄（Im3̄m）</td></tr>
-<tr><td>立方</td><td>cF</td><td>立方晶系</td><td>銅、塩化ナトリウム NaCl（Fm3̄m）、ダイヤモンド、ケイ素（Fd3̄m）</td></tr></table>
-<p>三方晶系は hP と hR の両方にまたがり、六方晶系は hP だけをとる。そのため晶族 6、晶系 7、ブラベー格子 14 と数が合わない。例は室温の相（SrTiO₃ などは低温で対称性が下がる）。α-石英とテルルは右手型・左手型で P3₁21 と P3₂21 の対になる。CeCu₂ の空間群は <a href="https://aflowlib.duke.edu/prototype-encyclopedia/AB2_oI12_74_e_h-001">AFLOW の結晶構造データベース</a> で確認。</p></main></body></html>
+<tr><td>立方</td><td>cP</td><td>立方晶系</td><td>塩化セシウム CsCl（\(Pm\bar{3}m\)）、チタン酸ストロンチウム SrTiO₃（\(Pm\bar{3}m\)）</td></tr>
+<tr><td>立方</td><td>cI</td><td>立方晶系</td><td>α-鉄（\(Im\bar{3}m\)）</td></tr>
+<tr><td>立方</td><td>cF</td><td>立方晶系</td><td>銅、塩化ナトリウム NaCl（\(Fm\bar{3}m\)）、ダイヤモンド、ケイ素（\(Fd\bar{3}m\)）</td></tr></table>
+<p>三方晶系は hP と hR の両方にまたがり、六方晶系は hP だけをとる。そのため晶族 6、晶系 7、ブラベー格子 14 と数が合わない。例は室温の相（SrTiO₃ などは低温で対称性が下がる）。α-石英とテルルは右手型・左手型で \(P3_121\) と \(P3_221\) の対になる。CeCu₂ の空間群は <a href="https://aflowlib.duke.edu/prototype-encyclopedia/AB2_oI12_74_e_h-001">AFLOW の結晶構造データベース</a> で確認。</p></main></body></html>
