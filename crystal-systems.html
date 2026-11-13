@@ -2,7 +2,18 @@
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>晶系と格子系｜結晶の対称性と格子</title><link rel="stylesheet" href="style.css"></head>
 <body><nav class="top"><a href="index.html">トップ</a><a href="symmetry-matrices.html">対称操作の行列</a><a href="basis-change.html">基底変換 P</a><a href="crystal-systems.html" class="cur">晶系と格子系</a><a href="cells.html">慣用セルと基本セル</a><a href="basis-vectors.html">基底ベクトル</a></nav><main><h1>晶系と格子系</h1>
-<p class="lead">晶系は点群（原子まで含めた対称性）で、格子系は格子点の並びの対称性で決まる。セルの形は必要条件にすぎない。</p>
+<p class="lead">晶族・晶系・ブラベー格子の型は、単位胞の形ではなく、結晶がもつ対称要素、具体的には回転軸（回反軸を含む）で決まる。セルの形は、その回転軸があれば必ず満たされる結果（必要条件）にすぎない。</p>
+<h2>分類を決めるもの：回転軸</h2>
+<p>各晶系は、次の回転軸をもつかどうかで決まる。鏡映面は 2̄ 軸、反転中心は 1̄ として回反軸に含める。晶族も同じく回転軸で決まり、3 回軸または 6 回軸を 1 本もつ三方晶系と六方晶系が、まとめて六方晶族になる。</p>
+<table class="cls"><tr><th>晶族</th><th>晶系</th><th>決め手となる回転軸</th><th>セルの形（結果として満たす条件）</th></tr>
+<tr><td>三斜</td><td>三斜晶系</td><td>なし（1 または 1̄ のみ）</td><td>制約なし</td></tr>
+<tr><td>単斜</td><td>単斜晶系</td><td>2 回軸または 2̄ 軸が 1 本</td><td>2 回軸を b 軸にとると α = γ = 90°</td></tr>
+<tr><td>直方</td><td>直方晶系</td><td>互いに直交する 2 回軸または 2̄ 軸が 3 本</td><td>α = β = γ = 90°</td></tr>
+<tr><td>正方</td><td>正方晶系</td><td>4 回軸または 4̄ 軸が 1 本</td><td>a = b, α = β = γ = 90°</td></tr>
+<tr><td rowspan="2">六方</td><td>三方晶系</td><td>3 回軸または 3̄ 軸が 1 本</td><td>六方軸で a = b, γ = 120°（hR は菱面体軸でも記述可）</td></tr>
+<tr><td>六方晶系</td><td>6 回軸または 6̄ 軸が 1 本</td><td>a = b, γ = 120°</td></tr>
+<tr><td>立方</td><td>立方晶系</td><td>体対角線方向の 3 回軸または 3̄ 軸が 4 本</td><td>a = b = c, α = β = γ = 90°</td></tr></table>
+<p>逆向きは成り立たない。セルの形が条件を満たしていても、その回転軸がなければその晶系・晶族ではない（次の例）。</p>
 <h2>同じ形のセルでも晶系が違う例</h2>
 <figure><svg viewBox="0 0 380 210" role="img" aria-label="同じ長方形セルでも直方晶と単斜晶がある例">
 <text class="ts" x="100" y="40" text-anchor="middle">a ≠ b, γ = 90°</text><text class="ts" x="280" y="40" text-anchor="middle">a ≠ b, γ = 90°</text>
@@ -13,7 +24,7 @@
 <g class="c-coral"><circle cx="85" cy="100" r="7"/><circle cx="115" cy="100" r="7"/><circle cx="264" cy="90" r="7"/><circle cx="296" cy="110" r="7"/></g>
 <ellipse cx="280" cy="100" rx="3" ry="6" fill="var(--p)"/>
 <text class="th" x="100" y="172" text-anchor="middle">直方晶</text><text class="ts" x="100" y="192" text-anchor="middle">鏡映面あり（緑の点線）</text>
-<text class="th" x="280" y="172" text-anchor="middle">単斜晶</text><text class="ts" x="280" y="192" text-anchor="middle">鏡映面なし、2 回軸のみ</text></svg><figcaption>左右とも同じ長方形のセル。分子が傾くと鏡映面が消え、2 回軸だけが残る（紙面に垂直な c 軸をとると単斜晶に相当）。右では γ = 90° は偶然で、温度などでずれうる（擬対称）。</figcaption></figure>
+<text class="th" x="280" y="172" text-anchor="middle">単斜晶</text><text class="ts" x="280" y="192" text-anchor="middle">鏡映面なし、2 回軸のみ</text></svg><figcaption>左右とも同じ長方形のセル。分子が傾くと鏡映面が消え、2 回軸だけが残る（紙面に垂直な c 軸をとると単斜晶に相当）。右では γ = 90° は偶然で、温度などでずれうる（擬対称）。右の結晶は晶系・ブラベー格子の型（mP）・晶族のいずれも単斜であり、直方晶族ではない。γ = 90° は対称性から要求されない偶然の一致なので、分類には使わない。</figcaption></figure>
 <h2>格子系：hP と hR</h2>
 <figure><svg viewBox="0 0 380 290" role="img" aria-label="六方格子hPと菱面体格子hRの格子点と対称軸">
 <text class="ts" x="190" y="70" text-anchor="middle">c 軸方向から見た六方セル（数字は高さ z）</text>
@@ -212,7 +223,7 @@
 <text class="ts" x="62" y="252">原子</text><text class="ts" x="194" y="252">6 回軸</text><text class="ts" x="62" y="276">3 回軸</text></svg><figcaption>格子は同じ hP。原子が 6 回対称なら六方晶系、3 回対称なら三方晶系。α-石英は格子が hP で、結晶は三方晶系。</figcaption></figure>
 <h2>晶族・ブラベー格子・晶系の対応と結晶の例</h2>
 <p>教科書でいう「広義の六方格子」は晶族（crystal family）にあたる。晶族は 6 つで、ブラベー格子（14）と晶系（7）で分けると次のようになる。違いが出るのは六方晶族の中だけ。</p>
-<table class="cls"><tr><th>晶族</th><th>ブラベー格子</th><th>晶系</th><th>結晶の例（空間群）</th></tr>
+<table class="cls cls3"><tr><th>晶族</th><th>ブラベー格子</th><th>晶系</th><th>結晶の例（空間群）</th></tr>
 <tr><td>三斜</td><td>aP</td><td>三斜晶系</td><td>硫酸銅五水和物 CuSO₄·5H₂O（P1̄）、藍晶石 Al₂SiO₅（P1̄）</td></tr>
 <tr><td>単斜</td><td>mP</td><td>単斜晶系</td><td>単斜晶ジルコニア ZrO₂（P2₁/c）</td></tr>
 <tr><td>単斜</td><td>mC</td><td>単斜晶系</td><td>石膏 CaSO₄·2H₂O（C2/c）</td></tr>
