@@ -29,3 +29,5 @@ svg .c-coral>circle,svg circle.c-coral{fill:#F0997B;stroke:#993C1D;stroke-width:
 svg .c-gray>circle,svg circle.c-gray{fill:#D3D1C7;stroke:#5F5E5A;stroke-width:.6}
 table.cls td:nth-child(-n+2),table.cls th:nth-child(-n+2){white-space:nowrap}
 table.cls3 td:nth-child(3),table.cls3 th:nth-child(3){white-space:nowrap}
+details{margin:8px 0;padding:8px 12px;border:1px solid var(--line);border-radius:8px}summary{cursor:pointer;color:var(--acc)}
+table.ov td:nth-child(2),table.ov td:nth-child(3),table.ov th:nth-child(2),table.ov th:nth-child(3){white-space:nowrap}

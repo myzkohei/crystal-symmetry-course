@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VESTA 演習｜結晶の対称性と格子</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="katex/katex.min.css"><script defer src="katex/katex.min.js"></script><script defer src="katex/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'\\(',right:'\\)',display:false}],ignoredTags:['script','noscript','style','textarea','pre','code']})"></script></head>
+<body><nav class="top"><a href="index.html">トップ</a><a href="symmetry-matrices.html">対称操作の行列</a><a href="basis-change.html">基底変換 P</a><a href="crystal-systems.html">晶系と格子系</a><a href="cells.html">慣用セルと基本セル</a><a href="basis-vectors.html">基底ベクトル</a><a href="vesta-exercises.html" class="cur">VESTA 演習</a></nav><main><h1>VESTA 演習</h1>
+<p class="lead">VESTA で空間群と原子位置から結晶構造を描き、XRD パターンを計算し、変換行列でセルを取り替える。課題 1・2 は授業で、課題 3・4 は自習で行う。</p>
+<table class="ov"><tr><th>課題</th><th>形式</th><th>目安</th><th>学ぶこと</th><th>関連ページ</th></tr>
+<tr><td>1. NaCl とルチルを描く</td><td>授業</td><td>40 分</td><td>空間群と非等価な原子位置から構造が生成されること、Wyckoff 位置と多重度</td><td><a href="symmetry-matrices.html">対称操作の行列</a></td></tr>
+<tr><td>2. XRD と消滅則</td><td>授業</td><td>40 分</td><td>格子の中心化（P・I・F）が回折ピークの消滅に現れること</td><td><a href="cells.html">慣用セルと基本セル</a></td></tr>
+<tr><td>3. FCC の基本セル</td><td>自習</td><td>60 分</td><td>変換行列 P の入力、det P と体積比、ミラー指数の変換</td><td><a href="basis-change.html">基底変換 P</a></td></tr>
+<tr><td>4. コランダムの菱面体軸</td><td>自習</td><td>60 分</td><td>hR 格子の六方軸と菱面体軸、R 中心化</td><td><a href="crystal-systems.html">晶系と格子系</a></td></tr></table>
+<p>準備：VESTA 3 を各自の PC に入れておく（<a href="https://jp-minerals.org/vesta/">公式サイト</a>）。XRD は VESTA 内蔵の機能で計算でき、RIETAN-FP は不要。格子定数と原子位置は各課題の代表値を使う。</p>
+
+<h2>課題 1（授業）：空間群と原子位置から構造を描く</h2>
+<p>非等価な原子を 1〜2 個入力するだけで、空間群の対称操作により単位胞全体の原子が生成されることを確かめる。</p>
+<table><tr><th>物質</th><th>空間群（番号）</th><th>格子定数</th><th>原子（Wyckoff 位置）と座標</th></tr>
+<tr><td>NaCl</td><td>\(Fm\bar{3}m\)（225）</td><td>a = 5.640 Å</td><td>Na（4a）(0, 0, 0)、Cl（4b）(1/2, 1/2, 1/2)</td></tr>
+<tr><td>ルチル TiO₂</td><td>\(P4_2/mnm\)（136）</td><td>a = 4.594 Å、c = 2.959 Å</td><td>Ti（2a）(0, 0, 0)、O（4f）(x, x, 0)、x = 0.305</td></tr></table>
+<p><b>手順</b></p><ol>
+<li>File → New Structure を開く。</li>
+<li>Unit cell タブで空間群を番号で選び、格子定数を入力する。立方晶では a だけ、正方晶では a と c だけが入力できることに注目する（晶系が格子定数に制約を与えている）。</li>
+<li>Structure parameters タブで New を押し、元素と分率座標を入力する。非等価な原子だけを入れる。</li>
+<li>OK を押して構造を表示し、Utilities → Equivalent Positions で対称操作により生成された等価位置の一覧を見る。</li>
+<li>Edit → Bonds で結合を設定し、多面体表示に切り替えて配位の形を見る。結合距離は原子をクリックするか、Utilities → Geometrical Parameters で調べる。</li></ol>
+<p><b>確認問題</b></p><ol>
+<li>単位胞に含まれる原子の数を元素ごとに数え、Wyckoff 位置の記号（4a、4f など）の数字と比べよ。</li>
+<li>各イオンの配位数と、最近接の結合距離を求めよ。</li>
+<li>ルチルで x を 0.30 と 0.31 に変え、TiO₆ 八面体の Ti–O 距離がどう変わるか調べよ。x が自由なのはなぜか（Wyckoff 位置 4f の座標に変数が含まれる理由）を説明せよ。</li></ol>
+<details><summary>検算値を見る</summary><ul><li>NaCl：Na 4 個、Cl 4 個。配位数はどちらも 6。Na–Cl = a/2 = 2.820 Å。</li><li>ルチル：Ti 2 個、O 4 個（Z = 2）。Ti の配位数 6、O の配位数 3。Ti–O は 1.948 Å が 4 本と 1.981 Å が 2 本（ゆがんだ八面体）。</li></ul></details>
+
+<h2>課題 2（授業）：XRD パターンのシミュレーションと消滅則</h2>
+<p>同じ立方晶でも、格子の中心化（P・I・F）によって現れる反射が違うことを確かめる。</p>
+<table><tr><th>物質</th><th>格子</th><th>空間群（番号）</th><th>格子定数</th><th>原子と座標</th></tr>
+<tr><td>Cu</td><td>cF</td><td>\(Fm\bar{3}m\)（225）</td><td>a = 3.615 Å</td><td>Cu（4a）(0, 0, 0)</td></tr>
+<tr><td>α-Fe</td><td>cI</td><td>\(Im\bar{3}m\)（229）</td><td>a = 2.866 Å</td><td>Fe（2a）(0, 0, 0)</td></tr>
+<tr><td>CsCl</td><td>cP</td><td>\(Pm\bar{3}m\)（221）</td><td>a = 4.123 Å</td><td>Cs（1a）(0, 0, 0)、Cl（1b）(1/2, 1/2, 1/2)</td></tr></table>
+<p><b>手順</b></p><ol>
+<li>課題 1 と同じように 3 つの構造を入力する。</li>
+<li>Utilities → Powder Diffraction Pattern を開き、X 線、波長 1.5406 Å（Cu Kα₁）で計算する。2θ の範囲は 10〜90° 程度。</li>
+<li>各ピークの hkl と 2θ を記録する。</li>
+<li>CsCl の Cs を Cl に置き換えて（2 つのサイトを同じ原子にして）、もう一度計算する。</li></ol>
+<p><b>確認問題</b></p><ol>
+<li>3 つの物質で、低角側から 3 本のピークの hkl を並べよ。現れない hkl にはどんな規則があるか。</li>
+<li>その規則を、中心化の並進 (1/2, 1/2, 1/2) や (0, 1/2, 1/2) などを構造因子に入れて導け。</li>
+<li>手順 4 で消えたピークはどれか。そのときの格子は何になったと考えられるか。元の CsCl でそのピークが弱い場合は、その理由も考えよ。</li></ol>
+<details><summary>検算値を見る</summary><p>Cu Kα₁、2θ は小数第 2 位まで。</p><ul><li>Cu（F）：111（43.32°）、200（50.45°）、220（74.13°）。h, k, l がすべて偶数かすべて奇数の反射だけが現れる。</li><li>α-Fe（I）：110（44.68°）、200（65.03°）、211（82.35°）。h + k + l が偶数の反射だけが現れる。</li><li>CsCl（P）：100（21.54°）、110（30.64°）、111（37.76°）。中心化による消滅はない。</li><li>手順 4：100 や 111 など h + k + l が奇数の反射が消え、体心格子（I）と同じ規則になる。元の CsCl では、これらの反射の強度が Cs と Cl の散乱因子の差に比例する。</li></ul></details>
+
+<h2>課題 3（自習）：FCC の慣用セルから基本セルへ</h2>
+<p>課題 2 の Cu を、変換行列 P を使って基本セルで表し直す。同じ結晶でも、セルの選び方で格子定数もミラー指数も変わることを確かめる。</p>
+<pre>a′ = (b + c)/2,  b′ = (a + c)/2,  c′ = (a + b)/2
+
+      ⎛  0    1/2  1/2 ⎞
+  P = ⎜ 1/2    0   1/2 ⎟
+      ⎝ 1/2   1/2   0  ⎠</pre>
+<p><b>手順</b></p><ol>
+<li>課題 2 で作った Cu の構造を開く。</li>
+<li>Edit → Edit Data → Unit cell で Remove symmetry を押し、空間群を P1 にして全原子を挙げた形にする（対称性の記述が新しいセルと合わなくなるため）。</li>
+<li>同じ画面の Transform で上の P を入力し、原点移動は 0 のままにする。変換後に同じ位置に原子が重なっているので、Remove duplicate atoms で重複を取り除く（理由は確認問題 1 で考える）。</li>
+<li>変換後の格子定数、体積、セル内の原子数を記録する。</li>
+<li>変換後の構造で XRD を計算し、課題 2 の結果と比べる。</li></ol>
+<p><b>確認問題</b></p><ol>
+<li>det P を計算し、変換前後の体積比・原子数の比と一致することを確かめよ。また、変換直後に原子が重なっていた理由を説明せよ。</li>
+<li>基本セルの形（a′ = b′ = c′、α = β = γ）だけを見ると何晶系のように見えるか。それでも Cu が立方晶であるのはなぜか。</li>
+<li>ミラー指数は基底と同じく (h′, k′, l′) = (h, k, l)P で変換される。111、200、220、311 を変換し、手順 5 のピークの指数と対応させよ。</li>
+<li>慣用セルで消滅する 100 を同じように変換するとどうなるか。それは課題 2 の消滅則とどう関係するか。</li></ol>
+<details><summary>検算値を見る</summary><ul><li>基本セル：a′ = b′ = c′ = a/√2 = 2.556 Å、α = β = γ = 60°、体積 11.81 Å³（慣用セル 47.24 Å³ の 1/4）、重複を除いて Cu 1 個。det P = 1/4。慣用セルの 4 個の Cu（隅と 3 つの面心）は基本セルの基底ベクトルで互いに移り合うので、新しいセルの中では同じ位置に重なる。</li><li>指数の対応：111 → 111、200 → 011、220 → 112、311 → 122。ピークの 2θ は変わらない。</li><li>100 → (0, 1/2, 1/2) と整数にならず、対応する逆格子点がない。慣用セルでの「消滅」は、基本セルで見ればそもそも反射が存在しないということ。</li></ul><p>P は対称行列なので、行と列を取り違えても結果は同じになる。列の向きを意識する練習は課題 4 で行う。</p></details>
+
+<h2>課題 4（自習）：コランダムの六方軸と菱面体軸</h2>
+<p>hR 格子の結晶を、六方軸の慣用セルと菱面体軸の基本セルの両方で表す。課題 3 と違い P が対称行列ではないので、「列に新しい基底を並べる」ことを意識しないと正しい結果にならない。</p>
+<table><tr><th>物質</th><th>空間群（番号）</th><th>格子定数（六方軸、obverse 配置）</th><th>原子と座標</th></tr>
+<tr><td>コランダム α-Al₂O₃</td><td>\(R\bar{3}c\)（167）</td><td>a = 4.759 Å、c = 12.991 Å</td><td>Al（12c）(0, 0, z)、z = 0.3522、O（18e）(x, 0, 1/4)、x = 0.3064</td></tr></table>
+<pre>a′ = ( 2a +  b + c)/3
+b′ = ( −a +  b + c)/3
+c′ = ( −a − 2b + c)/3
+
+      ⎛ 2/3  −1/3  −1/3 ⎞
+  P = ⎜ 1/3   1/3  −2/3 ⎟
+      ⎝ 1/3   1/3   1/3 ⎠</pre>
+<p><b>手順</b></p><ol>
+<li>六方軸のデータで構造を入力し、単位胞内の原子数を数える。高さ 1/3、2/3 にも同じ配置が繰り返されていること（R 中心化）を確かめる。</li>
+<li>課題 3 と同じく Remove symmetry のあと Transform で P を入力する。入力欄のどの並びが P の列にあたるかを確かめてから入れる。変換後は Al や O が同じ位置に 3 つずつ重なるので、Remove duplicate atoms で重複を取り除く。</li>
+<li>変換後の格子定数、体積、原子数、Al の座標を記録する。</li>
+<li>変換前後で XRD を計算し、ピーク位置が同じで指数だけが違うことを確かめる。</li></ol>
+<p><b>確認問題</b></p><ol>
+<li>変換後の格子定数が a′ = b′ = c′、α = β = γ になることを確かめ、体積比と det P を比べよ。</li>
+<li>a′ + b′ + c′ を a, b, c で表し、菱面体の体対角線が 3 回軸（c 軸）に一致することを示せ。</li>
+<li>六方軸で (0, 0, z) にある Al は、菱面体軸ではどんな座標になるか。ξ′ = P⁻¹ξ で計算して、VESTA の結果と比べよ。</li>
+<li><a href="crystal-systems.html">晶系と格子系</a> の hR の図と対応させ、六方軸のセルに格子点が 3 個あることを説明せよ。</li></ol>
+<details><summary>検算値を見る</summary><ul><li>六方軸：体積 254.80 Å³、Al 12 個、O 18 個（Z = 6）。</li><li>菱面体軸：a′ = b′ = c′ = 5.128 Å、α = β = γ = 55.29°、体積 84.93 Å³（1/3）、重複を除いて Al 4 個、O 6 個（Z = 2）。det P = 1/3。六方軸のセルで R 中心化 (2/3, 1/3, 1/3)、(1/3, 2/3, 2/3) で移り合う 3 つの原子が、菱面体軸のセルでは同じ位置に重なるので、変換直後は 3 個ずつ重なって見える。</li><li>a′ + b′ + c′ = c。</li><li>P⁻¹ の行は (1, 0, 1)、(−1, 1, 1)、(0, −1, 1)。Al は (z, z, z) = (0.3522, 0.3522, 0.3522)、O は (0.5564, −0.0564, 1/4) など（x, 1/2 − x, 1/4 の形）。</li><li>P を転置して入力した場合は、辺の長さが 6.031、8.805、4.612 Å とそろわず菱面体にならない（体積は同じ 84.93 Å³）。体積だけでは入力の誤りに気づけない。</li></ul></details>
+
+<h2>参考</h2>
+<ul><li><a href="https://jp-minerals.org/vesta/en/doc/VESTA.html">VESTA マニュアル</a>（第 14 章 Utilities：Equivalent Positions、Powder Diffraction Pattern など）</li>
+<li><a href="https://www.rs.tus.ac.jp/hypermaterials/activity/documents/Hyper_Material20.05.28_Momma.pdf">門馬綱一「Conversions and comparison of structures using VESTA」</a>（Transform の使い方）</li></ul></main></body></html>
