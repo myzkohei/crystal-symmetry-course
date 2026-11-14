@@ -231,7 +231,7 @@ page("vesta-exercises.html","VESTA 演習",f'''<h1>VESTA 演習</h1>
 <li>Unit cell タブで空間群を番号で選び、格子定数を入力する。立方晶では a だけ、正方晶では a と c だけが入力できることに注目する（晶系が格子定数に制約を与えている）。</li>
 <li>Structure parameters タブで New を押し、元素と分率座標を入力する。非等価な原子だけを入れる。</li>
 <li>OK を押して構造を表示し、Utilities → Equivalent Positions で空間群の一般等価位置（対称操作）の一覧を見る。1 つ選ぶと、その操作の行列が表示される。入力した原子の座標をこれらの式に代入したものが、単位胞内の原子の位置になる。</li>
-<li>Edit → Bonds で結合を設定し、多面体表示に切り替えて配位の形を見る。結合距離は原子をクリックするか、Utilities → Geometrical Parameters で調べる。</li></ol>
+<li>Edit → Bonds で結合を設定し、多面体表示に切り替えて配位の形を見る。結合距離は、画面左のツールバーで Distance（距離）ツールを選び、2 つの原子を順にクリックして測る。角度は Angle ツールで 3 つの原子を選ぶ。測った値は画面下のテキスト欄に表示される（Utilities → Geometrical Parameters は RIETAN-FP の解析で作られるファイルが必要なので、ここでは使わない）。</li></ol>
 <p><b>確認問題</b></p><ol>
 <li>単位胞に含まれる原子の数を元素ごとに数え、Wyckoff 位置の記号（4a、4f など）の数字と比べよ。一般等価位置の数（Fm3̄m では 192、P4₂/mnm では 16）より少ないのはなぜか。原子数は、保存しない状態で Edit Data → Unit cell の Remove symmetry を押すと Structure parameters に全原子が並ぶので、そこで数えられる。</li>
 <li>各イオンの配位数と、最近接の結合距離を求めよ。</li>
